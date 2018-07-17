@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动生成100个li（定位）</title>
+</head>
+<style>
+    #uli{
+        list-style: none;
+        position: relative;
+    }
+    #uli li{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var bauto = document.getElementById('bauto');
+        var uli = document.getElementById('uli');
+        var html = '';
+        var bgc = ['red','green','blue','yellow'];
+        bauto.onclick = function () {
+            for (var i= 0; i<100; i++){
+                var left = 20+(i%10)*55;
+                var tp = Math.floor(i/10)*55;
+                var color = bgc[i%bgc.length];
+                html += '<li style="left:'+left+'px;top:'+tp+'px;background:'+color+'">'+i+'</li>';
+            }
+            uli.innerHTML = html;
+        }
+    }
+</script>
+<body>
+<input id="bauto" type="button" value="自动生成100个li">
+<ul id="uli"></ul>
+</body>
+</html>
